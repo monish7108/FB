@@ -1,0 +1,72 @@
+{% extends "registration/base.html" %}
+{% block content %}
+
+<form class="form-horizontal" method="POST">{% csrf_token %}
+  <fieldset>
+    <legend>Register</legend>
+      <div class="form-group">
+      <label for="username" class="col-lg-3 control-label">Username</label>
+      <div class="col-lg-4">
+        <input class="form-control" id="username" name="username" placeholder="username" type="text" onblur=myfunc()>
+
+          <font color="red" id="error"></font>
+      </div>
+    </div>
+      <div class="form-group">
+      <label for="first_name" class="col-lg-3 control-label">First Name</label>
+      <div class="col-lg-4">
+        <input class="form-control" id="first_name" name="first_name" placeholder="firstname" type="text">
+      </div>
+    </div>
+
+      <div class="form-group">
+      <label for="last_name" class="col-lg-3 control-label">Last  Name</label>
+      <div class="col-lg-4">
+        <input class="form-control" id="last_name" name="last_name" placeholder="lastname" type="text">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="col-lg-3 control-label">Email</label>
+      <div class="col-lg-4">
+        <input class="form-control" id="email" name="email" placeholder="Email" type="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password" class="col-lg-3 control-label">Password</label>
+      <div class="col-lg-4">
+        <input class="form-control" id="password" name="password" placeholder="Password" type="password">
+
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <div class="col-lg-3 col-lg-offset-3">
+        <button type="reset" class="btn btn-default">Cancel</button>&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary">Submit</button>&nbsp;&nbsp;<br><br>
+          Already a member ? <a href="{% url 'login' %}" class="to_register"> Go and log in </a>
+      </div>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
+
+
+{% endblock%}
+
+
+{% block script%}
+<script>
+    function myfunc(){
+    if(^[A-Za-z0-9]$.test(document.getElementById("username").value)){
+        document.getElemenetById('error').innerHTML = "";
+    }
+    else{
+        document.getElementById('error').innerHTML = "There should not be space or any other special characters."
+        document.getElementById('username').innerHTML = "";
+    }
+
+  }
+</script>
+{% endblock%}

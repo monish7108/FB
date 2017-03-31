@@ -1,0 +1,30 @@
+{% extends "registration/base.html" %}
+{%block content%}
+
+<form method="POST" autocomplete="on" action="{% url 'login' %}" class="form-horizontal">{% csrf_token %}
+    <fieldset>
+        <legend>Login</legend>
+        <div class="form-group">
+            <label for="username" class="col-lg-3 control-label">Username: </label>
+            <div class="col-lg-4">
+                <input class="form-control input-sm" id="username" name="username" required="required" placeholder="username..." type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-lg-3 control-label">Password: </label>
+            <div class="col-lg-4">
+                <input class="form-control input-sm" id="password" name="password" required="required" placeholder="password..." type="password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-4">
+                <input class="btn btn-primary" type="submit" value="Login" /><br><br>
+                Not a member? &nbsp; <a href="{% url 'register' %}" class="to_register"> Register Here! </a>
+            </div>
+        </div>
+
+
+    </fieldset>
+</form>
+
+{%endblock%}

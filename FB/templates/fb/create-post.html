@@ -1,0 +1,35 @@
+{% extends "registration/base.html" %}
+
+{% block content %}
+
+<form class="form-horizontal" method="POST">{% csrf_token %}
+  <fieldset>
+      <legend>Create Post</legend>
+
+      <div class="form-group">
+        <label for="title" class="col-lg-2 control-label">Title</label>
+        <div class="col-lg-9">
+        <input class="form-control" id="title" name="title" placeholder="Title" type="text">
+        </div>
+      </div>
+      <br>
+
+      <div class="form-group">
+          <label for="content" class="col-lg-2 control-label">Content</label>
+          <div class="col-lg-9">
+              <textarea class="form-control" rows="5" style="resize: none;" id="content" name="content"></textarea>
+              <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+          </div>
+      </div>
+      <br>
+
+      <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+              <button type="reset" class="btn btn-primary">Cancel</button>&nbsp;&nbsp;
+              <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+      </div>
+
+  </fieldset>
+</form>
+{% endblock %}

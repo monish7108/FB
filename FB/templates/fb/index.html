@@ -1,0 +1,12 @@
+{% extends "fb/base.html" %}
+
+
+{% block content %}
+
+    {% for i in posts%}
+        <div class="jumbotron">
+            <h2>{{i.title}}</h2>
+            <p>{{i.content}}</p>
+        </div>
+    {%endfor%}
+{% endblock %}
